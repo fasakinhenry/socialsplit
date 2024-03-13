@@ -1,6 +1,6 @@
 # Ubiquitous
 
-![App screenshot](./screenshot.png)
+![App screenshot](./screenshot.PNG)
 
 Ubiquitous is a Web app that allows content creators to create Long form contents with ease of access in generating tweet sections from the story line. The web app allows content creators to be ubiquitous by making it easy to post to different platfroms wheenver they are making posts.
 
