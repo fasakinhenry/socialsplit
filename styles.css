@@ -57,24 +57,28 @@ body {
 
 .content {
   width: 100%;
-  padding: 0 50px;
-  margin-top: 100px;
+  padding: 0 50px 0px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 
-.content div {
+.content .inputContainer {
   width: 100%;
   margin: 0 auto;
 }
 
-
 .content h2 {
-  font-size: 50px;
-  font-family: "Bricolage-Grotesque_ExtraBold";
+  font-size: 63px;
+  margin: 0;
+  margin-top: 70px;
+  font-family: "Bricolage-Grotesque_Medium";
+}
+
+.content h3 {
+  font-family: "Bricolage-Grotesque_ExtraLight";
 }
 
   
@@ -86,9 +90,9 @@ h1, h2 {
 textarea {
   width: 100%;
   height: 200px;
-  margin-bottom: 10px;
   border: 2px solid hsl(214.3 31.8% 91.4%);
-  border-radius: 1.5em;
+  border-bottom: none;
+  border-radius: 1.5em 1.5em 0 0;
   padding: 20px;
   outline: none;
 }
@@ -104,10 +108,63 @@ button {
   font-family: "Bricolage-Grotesque_Regular";
 }
 
+
+.content .input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  display: flex;
+  width: 100%;
+  font-family: "Bricolage-Grotesque_Extralight";
+  padding: 8px 10px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 2px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 0 0 1.5em 1.5em;
+}
+
+.options .seperateToggle {
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.seperateToggle .toggle {
+  padding: 6px;
+  background: #f0f3f4;
+}
+
+.seperateToggle .toggle:nth-child(1) {
+  border-radius: 0 0 0 1em;
+}
+
+.seperateToggle .toggle:nth-child(2) {
+  border-radius: 0 0 1em 0;
+}
+
+.seperateToggle .toggle.active {
+  background: #787391;
+  color: white;
+}
+
+.splitBtn {
+  margin-top: 10px;
+}
+
 .copy {
-  margin-left: 20px;
-  padding: 10px 30px;
+  margin-top: 10px;
+  width: 120px;
+  font-family: "Bricolage-Grotesque_Light";
+  padding: 10px 20px;
   background: #000;
+  border-radius: 1em;
 }
 
 .copy:hover {
@@ -116,8 +173,14 @@ button {
 
 .tweet {
   line-height: 1.5em;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1.5em;
+  font-family: "Bricolage-Grotesque_ExtraLight";
+  padding: 15px;
   margin-top: 30px;
+  box-shadow: 0px -3px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
@@ -125,6 +188,7 @@ button:hover {
 }
 
 #tweetParts {
+  width: 100%;
   margin-top: 20px;
 }
 

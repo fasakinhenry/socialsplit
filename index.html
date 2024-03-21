@@ -18,11 +18,21 @@
             </div>
         </nav>
         <div class="content">
-            <h2>Let's hear your story!😎</h2>
-            <div>
-                <textarea id="storyInput" placeholder="Enter your full post here..."></textarea>
+            <h2>Twitter Thread creator</h2>
+            <h3>Let's hear your story😎 Type/paste your story here!</h3>
+            <div class="inputContainer">
+                <div class="input">
+                    <textarea id="storyInput" placeholder="Enter your full post here..."></textarea>
+                    <div class="options">
+                        <div class="seperateToggle">
+                            <div class="toggle">Character</div>
+                            <div class="toggle active">Sentence</div>
+                        </div>
+                        <div class="numbered">5678</div>
+                    </div>
+                </div>
                 <button onclick="splitStory()" class="splitBtn">Split</button>
-            </div>
+            </div>   
             <div id="tweetParts"></div>
         </div>
     </div>
