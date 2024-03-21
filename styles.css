@@ -154,6 +154,14 @@ button {
   color: white;
 }
 
+.options .numberTweet{
+  background: #f0f3f4;
+  display: flex;
+  padding: 10px;
+  white-space: nowrap;
+  border-radius: 1em;
+}
+
 .splitBtn {
   margin-top: 10px;
 }
