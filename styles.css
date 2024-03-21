@@ -139,6 +139,7 @@ button {
 .seperateToggle .toggle {
   padding: 6px;
   background: #f0f3f4;
+  cursor: pointer;
 }
 
 .seperateToggle .toggle:nth-child(1) {
@@ -160,6 +161,7 @@ button {
   padding: 10px;
   white-space: nowrap;
   border-radius: 1em;
+  cursor: pointer;
 }
 
 .splitBtn {
