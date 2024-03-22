@@ -25,15 +25,16 @@
                     <textarea id="storyInput" placeholder="Enter your full post here..."></textarea>
                     <div class="options">
                         <div class="seperateToggle">
-                            <div class="toggle" onclick="toggleSplitType('character')">Character</div>
-                            <div class="toggle active" onclick="toggleSplitType('sentence')">Sentence</div>
+                            <div class="toggle" id="character" onclick="toggleSplitType('character')">Character</div>
+                            <div class="toggle active" id="sentence" onclick="toggleSplitType('sentence')">Sentence</div>
                         </div>
                         <div class="numberTweet" onclick="addTweetNumbers()">Number tweets</div>
                         <div class="textCount">5678</div>
                     </div>
                 </div>
                 <button onclick="splitStory()" class="splitBtn">Split</button>
-            </div>   
+            </div>
+            <h3 class="generateHeading">Generated Threads:</h3>
             <div id="tweetParts"></div>
         </div>
     </div>

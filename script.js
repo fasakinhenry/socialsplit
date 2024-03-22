@@ -4,6 +4,33 @@ let isCharacterSplit = false; // Flag to track if character split is enabled
 
 let isNumberingActive = false; // Flag to track if tweet numbering is active
 
+function splitStory() {
+  const storyInput = document.getElementById('storyInput').value.trim();
+  const sentences = isCharacterSplit ? splitByCharacter(storyInput) : storyInput.split(/[.!?]/);
+
+  const tweetPartsElement = document.getElementById('tweetParts');
+  tweetPartsElement.innerHTML = '';
+
+  let currentTweet = '';
+  splitProgress = 0; // Reset split progress
+  sentences.forEach((sentence, index) => {
+    const trimmedSentence = sentence.trim();
+    const punctuation = /[.!?]$/.test(trimmedSentence) ? trimmedSentence.slice(-1) : ''; // Check if last character is punctuation
+    const newTweet = `${currentTweet}${trimmedSentence}${punctuation} `;
+    if (newTweet.length <= MAX_TWEET_LENGTH) {
+      currentTweet = newTweet;
+    } else {
+      addTweetPart(tweetPartsElement, currentTweet);
+      currentTweet = `${trimmedSentence}${punctuation} `;
+    }
+  });
+
+  // Add the last tweet part
+  if (currentTweet.trim() !== '') {
+    addTweetPart(tweetPartsElement, currentTweet);
+  }
+}
+
 function addTweetNumbers() {
   isNumberingActive = !isNumberingActive; // Toggle the numbering status
 
@@ -32,39 +59,20 @@ function addTweetNumbers() {
   numberTweetButton.classList.toggle('active', isNumberingActive);
 }
 
-function splitStory() {
-  const storyInput = document.getElementById('storyInput').value.trim();
-  const sentences = isCharacterSplit ? splitByCharacter(storyInput) : storyInput.split(/[.!?]/);
-
-  const tweetPartsElement = document.getElementById('tweetParts');
-  tweetPartsElement.innerHTML = '';
-
-  let currentTweet = '';
-  splitProgress = 0; // Reset split progress
-  sentences.forEach((sentence, index) => {
-    const trimmedSentence = sentence.trim();
-    const punctuation = /[.!?]$/.test(trimmedSentence) ? trimmedSentence.slice(-1) : ''; // Check if last character is punctuation
-    const newTweet = `${currentTweet}${trimmedSentence}${punctuation} `;
-    if (newTweet.length <= MAX_TWEET_LENGTH) {
-      currentTweet = newTweet;
-    } else {
-      addTweetPart(tweetPartsElement, currentTweet);
-      currentTweet = `${trimmedSentence}${punctuation} `;
-    }
-  });
-
-  // Add the last tweet part
-  if (currentTweet.trim() !== '') {
-    addTweetPart(tweetPartsElement, currentTweet);
-  }
-}
-
 function toggleSplitType(toggleType) {
   isCharacterSplit = toggleType === 'character';
+	
+	if (toggleType === "sentence") {
+		document.querySelector('#character').classList.remove("active");
+		document.querySelector('#sentence').classList.add("active");
+	} else {
+		document.querySelector('#character').classList.add("active");
+		document.querySelector('#sentence').classList.remove("active");
+	}
 }
 
 function splitByCharacter(input) {
-  const chunkSize = MAX_TWEET_LENGTH - 3; // Adjust for tweet number and space
+  const chunkSize = MAX_TWEET_LENGTH - 1; // Adjust for tweet number and space
   const chunks = [];
   let index = 0;
   while (index < input.length) {
@@ -82,7 +90,13 @@ function addTweetPart(container, tweetContent) {
   const tweetContentWithNumber = `${tweetContent} ${tweetNumberText}`;
 
   tweetPart.innerText = tweetContentWithNumber.trim();
-
+  // Show number of characters in the tweet
+  const characterCount = tweetContent.length;
+  const charCountElement = document.createElement('span');
+  charCountElement.classList.add('char-count');
+  charCountElement.textContent = `${characterCount} characters`;
+  tweetPart.appendChild(charCountElement);
+	
   const copyButton = document.createElement('button');
   copyButton.classList.add('copy');
   copyButton.innerText = `Copy`; 
@@ -93,15 +107,8 @@ function addTweetPart(container, tweetContent) {
       toast(toastText);
   });
 
-  // Show number of characters in the tweet
-  const characterCount = tweetContent.length;
-  const charCountElement = document.createElement('span');
-  charCountElement.classList.add('char-count');
-  charCountElement.textContent = `${characterCount} characters`;
-  tweetPart.appendChild(charCountElement);
-
-  tweetPart.appendChild(copyButton);
   container.appendChild(tweetPart);
+  tweetPart.appendChild(copyButton);
 }
 
 function toast(message, type = 'success', timer = '1500', position = 'top') {

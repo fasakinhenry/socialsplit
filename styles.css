@@ -158,14 +158,26 @@ button {
 .options .numberTweet{
   background: #f0f3f4;
   display: flex;
-  padding: 10px;
+  padding: 8px;
+  font-size: 14px;
   white-space: nowrap;
   border-radius: 1em;
   cursor: pointer;
 }
 
+.options .numberTweet.active {
+  background: #787391;
+  color: white;
+}
+
 .splitBtn {
   margin-top: 10px;
+}
+
+.content .generateHeading {
+  font-family: "Bricolage-Grotesque_Bold";
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .copy {
