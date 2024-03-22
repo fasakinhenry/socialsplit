@@ -3,6 +3,7 @@ let splitProgress = 0; // Tracks the progress of split
 let isCharacterSplit = false; // Flag to track if character split is enabled
 
 let isNumberingActive = false; // Flag to track if tweet numbering is active
+let totalTweets;
 
 function splitStory() {
   const storyInput = document.getElementById('storyInput').value.trim();
@@ -35,7 +36,7 @@ function addTweetNumbers() {
   isNumberingActive = !isNumberingActive; // Toggle the numbering status
 
   const tweetParts = document.querySelectorAll('.tweet');
-  const totalTweets = tweetParts.length;
+  totalTweets = tweetParts.length;
 
   tweetParts.forEach((tweet, index) => {
     const existingNumberingElement = tweet.querySelector('.tweet-numbering');
@@ -86,7 +87,7 @@ function addTweetPart(container, tweetContent) {
   const tweetPart = document.createElement('div');
   tweetPart.classList.add('tweet');
 
-  const tweetNumberText = isNumberingActive ? `(${++splitProgress}/${container.children.length + 1})` : ''; // Include tweet number if numbering is active
+  const tweetNumberText = isNumberingActive ? `(${++splitProgress}/${totalTweets})` : ''; // Include tweet number if numbering is active
   const tweetContentWithNumber = `${tweetContent} ${tweetNumberText}`;
 
   tweetPart.innerText = tweetContentWithNumber.trim();
