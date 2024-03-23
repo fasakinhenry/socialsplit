@@ -100,7 +100,7 @@ function addTweetPart(container, tweetContent) {
 	
   const copyButton = document.createElement('button');
   copyButton.classList.add('copy');
-  copyButton.innerText = `Copy`; 
+  copyButton.innerText = `Copy`;
   copyButton.addEventListener('click', () => {
       const tweetToCopy = `${tweetContentWithNumber}`; // Include tweet number when copying
       navigator.clipboard.writeText(tweetToCopy);
