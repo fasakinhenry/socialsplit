@@ -12,6 +12,7 @@ It makes it easy for content creators to make posts across different social plat
 
 - Determine twitter character limits and divides your story to sections that does not exceed the twitter character limit.
 - We take the hassle of trying to ensure that sentences makes sense to the reader while splitting off you. This means that our app ensures that the story is always split into meaningful parts.
+- Adding AI integrations soon
 
 > Become a member of this amazing project and ride with us on the journey to making social media users ubiquitous.
 
